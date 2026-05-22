@@ -1,10 +1,12 @@
-# API PHP
+# 🐘 PHP API
 
-Projeto de estudo em PHP com arquitetura organizada em camadas, utilizando **PDO + SQLite** para persistência de dados e **Docker** para facilitar a execução do ambiente.
+Study project built with PHP using a layered architecture, utilizing **PDO + SQLite** for data persistence and **Docker** to simplify environment setup and execution.
 
-O sistema implementa um CRUD simples de **produtos**, servindo como base para aprender conceitos de organização de backend com PHP puro.
+The system implements a simple **product CRUD**, serving as a foundation for learning backend organization concepts using pure PHP.
 
-## Tecnologias utilizadas
+---
+
+## 🛠️ Technologies Used
 
 - PHP 8.2
 - SQLite
@@ -12,9 +14,11 @@ O sistema implementa um CRUD simples de **produtos**, servindo como base para ap
 - Docker
 - Docker Compose
 
-## Estrutura do projeto
+---
 
+## 📁 Project Structure
 
+```text
 api-php/
 ├── src/
 │   ├── controllers/
@@ -33,102 +37,165 @@ api-php/
 ├── Dockerfile
 ├── docker-compose.yaml
 └── test.php
-Organização das camadas
-Model
+```
 
-Representa a entidade do sistema.
+---
 
-product.php: define o produto com:
-id
-name
-stock
-Repository
+## 🧩 Layer Organization
 
-Responsável pelo acesso aos dados no banco SQLite.
+### Model
 
-productRepository.php:
-busca todos os produtos
-busca produto por ID
-salva produto
-atualiza produto
-remove produto
-Service
+Represents the system entity.
 
-Camada de regra de negócio.
+`product.php` defines the product with:
 
-productService.php:
-centraliza operações de CRUD
-faz a ponte entre controller e repository
-Controller
+- `id`
+- `name`
+- `stock`
 
-Responsável por coordenar as ações da aplicação.
+---
 
-productController.php:
-lista produtos
-cria produto
-atualiza produto
-remove produto
-View
+### Repository
 
-Responsável pela saída dos dados.
+Responsible for data access in the SQLite database.
 
-productView.php:
-exibe os produtos em formato de texto
-Funcionalidades atuais
-Listagem de produtos
-Cadastro de produtos
-Atualização de produtos
-Exclusão de produtos
-Persistência em banco SQLite
-Como executar com Docker
-1. Clonar o repositório
+`productRepository.php`:
+
+- retrieves all products
+- retrieves a product by ID
+- saves a product
+- updates a product
+- removes a product
+
+---
+
+### Service
+
+Business logic layer.
+
+`productService.php`:
+
+- centralizes CRUD operations
+- acts as a bridge between controller and repository
+
+---
+
+### Controller
+
+Responsible for coordinating application actions.
+
+`productController.php`:
+
+- lists products
+- creates products
+- updates products
+- removes products
+
+---
+
+### View
+
+Responsible for data output.
+
+`productView.php`:
+
+- displays products in text format
+
+---
+
+## 🚀 Current Features
+
+- Product listing
+- Product creation
+- Product updating
+- Product deletion
+- SQLite database persistence
+
+---
+
+## 🐳 Running with Docker
+
+### 1. Clone the Repository
+
+```bash id="g3v93t"
 git clone https://github.com/marcosmenezzes/api-php.git
 cd api-php
-2. Subir o container
+```
+
+---
+
+### 2. Start the Container
+
+```bash id="j9f4r2"
 docker compose up --build
+```
 
-A aplicação ficará disponível em:
+The application will be available at:
 
+```text
 http://localhost:8000
-Como funciona a execução
+```
 
-O projeto usa a imagem php:8.2-cli, instala suporte a pdo e pdo_sqlite, copia os arquivos para o container e sobe um servidor embutido do PHP apontando para:
+---
 
+## ⚙️ How Execution Works
+
+The project uses the `php:8.2-cli` image, installs support for `pdo` and `pdo_sqlite`, copies the project files into the container, and starts PHP’s built-in server pointing to:
+
+```text
 src/server.php
-Teste rápido
+```
 
-Existe um arquivo test.php usado para testar o fluxo de CRUD de produtos, incluindo:
+---
 
-criação
-listagem
-atualização
-exclusão
-Observações
-O arquivo server.php ainda está em fase inicial e indica a intenção de criar endpoints para:
-GET
-POST
-PUT
-DELETE
+## 🧪 Quick Test
 
-Ou seja, o projeto já possui a base estrutural de uma API, mas ainda pode evoluir para expor rotas HTTP completas.
+There is a `test.php` file used to test the complete product CRUD flow, including:
 
-Próximos passos sugeridos
-Criar rotas HTTP reais no server.php
-Retornar respostas em JSON
-Implementar tratamento de erros
-Adicionar validações
-Separar configuração de ambiente
-Criar documentação dos endpoints
-Adicionar migrations ou script de criação da tabela products
-Objetivo do projeto
+- creation
+- listing
+- updating
+- deletion
 
-Este projeto foi desenvolvido com foco em aprendizado, praticando:
+---
 
-organização de código em camadas
-separação de responsabilidades
-CRUD com PHP
-persistência com SQLite
-execução com Docker
-Autor
+## 📌 Notes
+
+The `server.php` file is still in an early stage and indicates the intention to create endpoints for:
+
+- `GET`
+- `POST`
+- `PUT`
+- `DELETE`
+
+In other words, the project already has the structural foundation of an API, but it can still evolve to expose complete HTTP routes.
+
+---
+
+## 🔮 Suggested Next Steps
+
+- Create real HTTP routes in `server.php`
+- Return JSON responses
+- Implement error handling
+- Add validations
+- Separate environment configuration
+- Create endpoint documentation
+- Add migrations or a script for creating the `products` table
+
+---
+
+## 🎯 Project Goal
+
+This project was developed with a focus on learning, practicing:
+
+- layered code organization
+- separation of responsibilities
+- CRUD operations with PHP
+- SQLite persistence
+- Docker-based execution
+
+---
+
+## 👨‍💻 Author
 
 Marcos Menezes
